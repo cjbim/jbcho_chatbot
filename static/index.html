@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL 데이터 분석 챗봇</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- 마크다운 렌더링 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Mermaid 차트 렌더링 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <!-- Chart.js 라이브러리 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="chat-header">
+            <div class="header-content">
+                <h1 class="header-title">SQL 데이터 분석 ChatBot</h1>
+            </div>
+        </header>
+
+        <div class="chat-container" id="chatContainer">
+            <div class="welcome-message">
+                <h2>데이터 분석을 시작하세요</h2>
+                <div class="example-prompts">
+                    <button class="example-btn" onclick="sendExample('카테고리별 통계를 파이차트로 보여줘')">📊 카테고리별 통계</button>
+                    <button class="example-btn" onclick="sendExample('지역별 발생 건수 상위 10개')">📈 지역별 분석</button>
+                    <button class="example-btn" onclick="sendExample('최근 데이터 내역 보여줘')">📋 상세 내역 조회</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <textarea
+                id="messageInput"
+                placeholder="자연어로 질문하세요..."
+                rows="1"
+                onkeydown="handleKeyDown(event)"
+            ></textarea>
+            <button id="actionButton" onclick="handleAction()">
+                <svg id="sendIcon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <svg id="stopIcon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+                    <rect x="6" y="6" width="12" height="12" fill="currentColor" stroke="currentColor" stroke-width="2"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="/static/script.js?v=2"></script>
+</body>
+</html>
